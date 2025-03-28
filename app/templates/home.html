@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Recipe Sharing Platform - Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="p-5 mb-4 bg-light rounded-3 text-center">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Welcome to Recipe Sharing Platform</h1>
+            <p class="fs-4">Discover, share, and cook amazing recipes from around the world.</p>
+            <div class="mt-4">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'recipe_create' %}" class="btn btn-primary btn-lg px-4 me-2">Share a Recipe</a>
+                {% else %}
+                    <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg px-4 me-2">Join Now</a>
+                {% endif %}
+                <a href="{% url 'recipe_list' %}" class="btn btn-outline-primary btn-lg px-4">Browse Recipes</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="bi bi-search display-1 text-primary mb-3"></i>
+                    <h3 class="card-title">Discover</h3>
+                    <p class="card-text">Find recipes based on ingredients, cuisine, cooking time and more.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="bi bi-share display-1 text-primary mb-3"></i>
+                    <h3 class="card-title">Share</h3>
+                    <p class="card-text">Upload your favorite recipes and share them with the community.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="bi bi-heart display-1 text-primary mb-3"></i>
+                    <h3 class="card-title">Interact</h3>
+                    <p class="card-text">Like, comment, and save recipes you love for later.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
